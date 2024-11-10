@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -17,11 +18,8 @@
         "name": "next"
       }
     ],
-    // 「"@/*": ["src/*"]」の設定の時に必要？？
-    // "baseUrl": ".",
     "paths": {
-      // "@/*": ["src/*"]
-      "@/*": ["./src/*"]
+      "@/*": ["./*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
