@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FaPenAlt } from "react-icons/fa";
 import { BsHandIndexThumb } from "react-icons/bs";
-export default function TimeLine() {
+export default function createQuestions() {
   return (
     <>
       <div className="container mx-auto flex flex-col justify-center items-center">
