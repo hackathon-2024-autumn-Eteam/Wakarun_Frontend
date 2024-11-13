@@ -1,13 +1,17 @@
 import LittleHeader from "@/app/components/layout/LittleHeader";
 import SigninBackground from "@/public/images/signinbackground.png";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function SigninPage() {
   return (
     <>
-      <button className="hover:opacity-60 transition-opacity">
-        <LittleHeader/>
-      </button>
+      <Link href="/">
+        <button className="hover:opacity-60 transition-opacity">
+          <LittleHeader/>
+        </button>
+      </Link>
+
       <div className="flex flex-col justify-center min-h-[70vh]">
         <div className="relative w-full max-w-[850px] mx-auto p-6">     
           {/* フォーム */}

@@ -1,13 +1,16 @@
 import LittleHeader from "@/app/components/layout/LittleHeader";
 import SignupBackground from "@/public/images/signupbackground.png";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function SignupPage() {
   return (
     <>
-      <button className="hover:opacity-60 transition-opacity">
-        <LittleHeader/>
-      </button>
+      <Link href="/">
+        <button className="hover:opacity-60 transition-opacity">
+          <LittleHeader/>
+        </button>
+      </Link>
       
       <div className="relative w-full max-w-[850px] mx-auto p-6">     
         {/* フォーム */}
