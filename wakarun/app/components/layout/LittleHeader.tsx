@@ -1,4 +1,4 @@
-export default function Little_Header() {
+export default function LittleHeader() {
     return (
         <>
             <svg width="310" height="122" viewBox="0 0 310 122" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -39,7 +39,7 @@ export default function Little_Header() {
 <stop offset="1"/>
 </linearGradient>
 <linearGradient id="paint6_linear_567_634" x1="36.872" y1="47.0673" x2="80.2708" y2="139.878" gradientUnits="userSpaceOnUse">
-<stop stop-color="#FFE839"/>
+<stop stopColor="#FFE839"/>
 <stop offset="1"/>
 </linearGradient>
 <linearGradient id="paint7_linear_567_634" x1="129.997" y1="11.0161" x2="129.997" y2="86.4775" gradientUnits="userSpaceOnUse">

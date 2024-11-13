@@ -3,7 +3,7 @@ import logo from '@/public/images/logo2.png';
 import Image from 'next/image';
 
 
-export default function Page() {
+export default function TitlePage() {
   return (
     <>
       <div className='absolute top-[15%] right-0 left-0 flex items-center justify-center gap-8'>
