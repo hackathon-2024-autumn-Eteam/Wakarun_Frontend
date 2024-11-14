@@ -12,6 +12,8 @@ export default {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
         green: '#B4DA0A',
+        Lgreen: '#DAF55D',
+        LLgreen:'#EDFDA6'
       },
     },
   },
