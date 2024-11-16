@@ -1,18 +1,15 @@
 import '@/app/styles/global.css';
 import Background from '@/app/components/layout/Background';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'wakarun',
+};
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <html lang="ja">
-        <head>
-          <meta charSet="UTF-8" />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-          />
-          <title>Wakarun</title>
-        </head>
         <body>
           <Background />
           {children}
