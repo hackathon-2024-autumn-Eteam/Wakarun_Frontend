@@ -1,0 +1,99 @@
+.header {
+  list-style: none;
+}
+
+.header-left {
+  position: relative;
+  text-decoration: none;
+  z-index: 1;
+}
+
+.header-left::before {
+  content: '';
+  position: absolute;
+  width: 105%;
+  height: 120%;
+  top: 0;
+  left: 0%;
+  z-index: -1;
+  background-color: var(--color-green);
+  clip-path: polygon(0% 0%, 100% 0%, 85% 100%, 0% 100%);
+}
+
+.header-left::after {
+  content: '';
+  position: absolute;
+  width: 88%;
+  height: 10%;
+  top: 130%;
+  left: 0;
+  z-index: -1;
+  background-color: var(--color-green);
+  clip-path: polygon(0% 0%, 100% 0%, 98.4% 100%, 0% 100%);
+}
+
+.header-center {
+  position: relative;
+  text-decoration: none;
+  font-size: 12px;
+  z-index: 1;
+}
+
+.header-center::before {
+  content: '';
+  position: absolute;
+  width: 116%;
+  height: 120%;
+  top: 0;
+  left: -7.5%;
+  z-index: -1;
+  background-color: var(--color-green);
+  clip-path: polygon(13.5% 0%, 100% 0%, 86.5% 100%, 0% 100%);
+}
+
+.header-center:hover::before {
+  background-color: var(--color-blue);
+}
+
+.header-center::after {
+  content: '';
+  position: absolute;
+  width: 101.7%;
+  height: 10%;
+  top: 130%;
+  left: -10.2%;
+  z-index: -1;
+  background-color: var(--color-green);
+  clip-path: polygon(1.4% 0%, 100% 0%, 98.7% 100%, 0% 100%);
+}
+
+.header-right {
+  position: relative;
+  text-decoration: none;
+  font-size: 12px;
+  z-index: 1;
+}
+
+.header-right::before {
+  content: '';
+  position: absolute;
+  width: 104%;
+  height: 120%;
+  top: 0;
+  right: 0%;
+  z-index: -1;
+  background-color: var(--color-green);
+  clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.header-right::after {
+  content: '';
+  position: absolute;
+  width: 106.5%;
+  height: 10%;
+  top: 130%;
+  right: 0%;
+  z-index: -1;
+  background-color: var(--color-green);
+  clip-path: polygon(1.2% 0%, 100% 0%, 100% 100%, 0% 100%);
+}

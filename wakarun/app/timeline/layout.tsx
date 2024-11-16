@@ -1,4 +1,4 @@
-import Header from '@/app/components/layout/Header';
+import Header from '@/app/components/layout/header/header';
 
 export default function TimeLineLayout({
   children,
