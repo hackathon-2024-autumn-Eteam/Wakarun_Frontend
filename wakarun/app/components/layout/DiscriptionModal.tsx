@@ -32,8 +32,8 @@ const ConfirmationModal = ({ open, onClose, questionData, onConfirm } : Confirma
 
     return (
         <>
-            <div className="fixed inset-0 bg-white bg-opacity-50 z-10" onClick={onClose} />
-            <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-8 rounded-3xl z-20 w-[50vw]">
+            <div className="fixed inset-0 bg-black bg-opacity-50 z-10" onClick={onClose} />
+            <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-8 rounded-3xl z-20 w-[50vw] max-h-[80vh] overflow-auto">
                 <h2 className="text-2xl font-bold mb-4">問題作成の確認</h2>
                 <div className="space-y-4">
                     <div>
