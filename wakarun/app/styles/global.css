@@ -4,5 +4,10 @@
 
 :root {
   --color-green: theme('colors.green');
+  --color-litegreen: theme('colors.litegreen');
   --color-blue: theme('colors.blue');
+}
+
+li {
+  list-style: none;
 }

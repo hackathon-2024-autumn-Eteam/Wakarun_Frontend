@@ -1,16 +1,17 @@
 import Header from '@/app/components/layout/header/header';
 
-export default function TimeLineLayout({
+export default function timeline({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <>
-      <body>
+      <div className="flex flex-col w-full h-screen">
         <Header />
         {children}
-      </body>
+        <div className="h-16"></div>
+      </div>
     </>
   );
 }

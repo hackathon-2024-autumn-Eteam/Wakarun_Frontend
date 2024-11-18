@@ -23,8 +23,8 @@ const menuItems = [
 
 export default function Header() {
   return (
-    <header>
-      <ul className={`flex ${styles.header}`}>
+    <header className="pb-28">
+      <ul className="flex">
         <li className={`flex-1 pt-5 ${styles['header-left']}`}>
           <Link href="/" className="flex justify-start pl-14">
             <Image

@@ -13,7 +13,18 @@ export default {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
         green: '#B4DA0A',
+        litegreen: '#EFFFD1',
         blue: '#92DFD2',
+      },
+      borderRadius: {
+        large: '35px',
+      },
+      width: {
+        '1055': '65.9375rem',
+      },
+      height: {},
+      padding: {
+        '72px': '72px',
       },
       clipPath: {
         left_trapezoid: 'polygon(0 0, 100% 0, 75% 100%, 0 100%)',
@@ -36,5 +47,6 @@ export default {
         },
       });
     },
+    require('@tailwindcss/line-clamp'),
   ],
 } satisfies Config;
