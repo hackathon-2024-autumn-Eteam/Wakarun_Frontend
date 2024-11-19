@@ -10,7 +10,7 @@ export default function timeline({
       <div className="flex flex-col w-full h-screen">
         <Header />
         {children}
-        <div className="h-16"></div>
+        <div className="footer h-16"></div>
       </div>
     </>
   );

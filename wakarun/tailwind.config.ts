@@ -16,6 +16,8 @@ export default {
         green: '#B4DA0A',
         litegreen: '#EFFFD1',
         blue: '#92DFD2',
+        Lgreen: '#DAF55D',
+        LLgreen: '#EDFDA6',
       },
       borderRadius: {
         large: '35px',
@@ -31,8 +33,6 @@ export default {
         left_trapezoid: 'polygon(0 0, 100% 0, 75% 100%, 0 100%)',
         right_trapezoid: 'polygon(25% 0, 100% 0, 100% 100%, 0 100%)',
         parallelogram: 'polygon(25% 0, 100% 0, 75% 100%, 0% 100%)',
-        Lgreen: '#DAF55D',
-        LLgreen: '#EDFDA6',
       },
     },
   },
@@ -50,7 +50,6 @@ export default {
         },
       });
     },
-    require('@tailwindcss/line-clamp'),
     scrollbar,
   ],
 } satisfies Config;

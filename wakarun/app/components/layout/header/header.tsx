@@ -8,7 +8,11 @@ import { GiBookCover } from 'react-icons/gi';
 import { FaUserEdit } from 'react-icons/fa';
 
 const menuItems = [
-  { href: '/create', icon: <FaSquarePlus size={55} />, label: '問題作成' },
+  {
+    href: '/create_questions',
+    icon: <FaSquarePlus size={55} />,
+    label: '問題作成',
+  },
   {
     href: '/created-questions',
     icon: <GiBookCover size={55} />,
