@@ -1,4 +1,5 @@
-import Link from 'next/link';
+'use client';
+
 import { FaUserCircle } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 
@@ -17,11 +18,15 @@ export default function timelinePage() {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const response = await fetch('/timeline');
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/timeline`
+        );
         if (!response.ok) {
           throw new Error('Failed to fetch');
         }
-        const data: question[] = await response.json();
+        const responseBody = await response.json();
+        const data: question[] = responseBody.questions;
+
         setQuestions(data);
       } catch (error) {
         console.error(error);
@@ -36,11 +41,8 @@ export default function timelinePage() {
       <main className="flex-1 overflow-y-auto hidden-scrollbar">
         <div className="">
           {questions.map((question) => (
-            <div className="justify-items-center pb-9">
-              <li
-                key={question.id}
-                className="bg-litegreen rounded-[35px] w-[65.9375rem] py-5"
-              >
+            <div key={question.id} className="justify-items-center pb-9">
+              <li className="bg-litegreen rounded-[35px] w-[65.9375rem] py-5">
                 <div className="grid grid-cols-2">
                   <div className="flex justify-self-start items-center pl-8">
                     <div className="rounded-full bg-white w-10 h-10">
@@ -48,7 +50,7 @@ export default function timelinePage() {
                     </div>
                     <p className="pl-6 text-3xl">{question.user_name}</p>
                   </div>
-                  <div className="flex justify-self-end items-center pr-16 text-5xl">
+                  <div className="flex justify-self-end items-center pr-16 text-5xl truncate">
                     <p>{question.title}</p>
                   </div>
                   <div className="col-span-2 px-[72px] text-left line-clamp-4">

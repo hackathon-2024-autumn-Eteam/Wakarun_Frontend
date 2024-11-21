@@ -1,5 +1,4 @@
 import type { Config } from 'tailwindcss';
-import { PluginAPI } from 'tailwindcss/types/config';
 import scrollbar from 'tailwind-scrollbar';
 
 export default {
@@ -29,27 +28,7 @@ export default {
       padding: {
         '72px': '72px',
       },
-      clipPath: {
-        left_trapezoid: 'polygon(0 0, 100% 0, 75% 100%, 0 100%)',
-        right_trapezoid: 'polygon(25% 0, 100% 0, 100% 100%, 0 100%)',
-        parallelogram: 'polygon(25% 0, 100% 0, 75% 100%, 0% 100%)',
-      },
     },
   },
-  plugins: [
-    function (api: PluginAPI) {
-      api.addUtilities({
-        '.clip-left-trapezoid': {
-          'clip-path': 'polygon(0 0, 100% 0, 75% 100%, 0 100%)',
-        },
-        '.clip-right-trapezoid': {
-          'clip-path': 'polygon(25% 0, 100% 0, 100% 100%, 0 100%)',
-        },
-        '.clip-parallelogram': {
-          'clip-path': 'polygon(25% 0, 100% 0, 75% 100%, 0 100%)',
-        },
-      });
-    },
-    scrollbar,
-  ],
+  plugins: [scrollbar],
 } satisfies Config;
