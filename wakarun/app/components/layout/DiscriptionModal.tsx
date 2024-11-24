@@ -111,7 +111,7 @@ const CompletionModal = ({ open, onClose, questionData } : CompletionModalProps)
                         </button>
                         <Link href="/create_questions" className="flex-1">
                             <button 
-                                className="bg-yellow hover:bg-Lyellow transition flex justify-center items-center gap-4 rounded-br-3xl w-full h-full"
+                                className="bg-yellow2 hover:bg-Lyellow2 transition flex justify-center items-center gap-4 rounded-br-3xl w-full h-full"
                             >
                                 <RiArrowGoBackFill className="h-8 w-8"/>
                                 <span className="text-xl font-bold">問題作成に戻る</span>

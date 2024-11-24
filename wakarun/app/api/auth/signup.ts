@@ -8,25 +8,25 @@ interface SignupPram {
 
 interface SignupRequest {
     user_name:string;
-    e_mail:string;
+    email:string;
     password:string;
 }
 const signup = async({username, email, password}:SignupPram) => {
     try{
         const requestData:SignupRequest = {
             user_name:username,
-            e_mail:email,
+            email:email,
             password:password
         }
 
-        const responce = await axios.post(
-            'http://localhost:8000/api/signup',
+        const response = await axios.post(
+            'http://localhost:8000/api/signup/',
             requestData,
-            {withCredentials: true}
         )
         
-        if (responce.status === 200) {
+        if (response.status >= 200 && response.status < 300) {
             console.log('成功');
+            return true;
         }
     }   catch (error) {
         console.error('失敗',error)
