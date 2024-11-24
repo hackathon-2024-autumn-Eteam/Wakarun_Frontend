@@ -18,9 +18,6 @@ export default {
         Lgreen: '#DAF55D',
         LLgreen: '#EDFDA6',
       },
-      borderRadius: {
-        large: '35px',
-      },
       width: {
         '1055': '65.9375rem',
       },

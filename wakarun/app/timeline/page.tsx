@@ -2,6 +2,7 @@
 
 import { FaUserCircle } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
+import { Modal } from '@/app/components/modal/TimelineModal';
 
 type question = {
   id: string;
@@ -14,6 +15,10 @@ type question = {
 
 export default function timelinePage() {
   const [questions, setQuestions] = useState<question[]>([]);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [selectedQuestion, setSelectedQuestion] = useState<question | null>(
+    null
+  );
 
   useEffect(() => {
     const fetchQuestions = async () => {
@@ -36,13 +41,26 @@ export default function timelinePage() {
     fetchQuestions();
   }, []);
 
+  const openModal = (question: question) => {
+    setSelectedQuestion(question);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedQuestion(null);
+    setModalOpen(false);
+  };
+
   return (
     <>
       <main className="flex-1 overflow-y-auto hidden-scrollbar">
         <div className="">
           {questions.map((question) => (
             <div key={question.id} className="justify-items-center pb-9">
-              <li className="bg-litegreen rounded-[35px] w-[65.9375rem] py-5">
+              <li
+                className="bg-litegreen rounded-[35px] w-[65.9375rem] py-5"
+                onClick={() => openModal(question)}
+              >
                 <div className="grid grid-cols-2">
                   <div className="flex justify-self-start items-center pl-8">
                     <div className="rounded-full bg-white w-10 h-10">
@@ -60,6 +78,11 @@ export default function timelinePage() {
               </li>
             </div>
           ))}
+          <Modal
+            isOpen={isModalOpen}
+            onClose={closeModal}
+            question={selectedQuestion}
+          />
         </div>
       </main>
     </>
