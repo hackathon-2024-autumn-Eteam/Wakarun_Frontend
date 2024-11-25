@@ -53,14 +53,14 @@ export default function CreateQuestionsDescription() {
                     value={questionInput.question}
                     onChange={handleInputChange}
                     placeholder="問題文を入力"
-                    className="w-full h-[15vh] border-2 border-black rounded-3xl p-4"
+                    className="w-full h-[15vh] border-2 border-black rounded-3xl p-4 scrollbar-none"
                 />
                 <textarea
                     name="answer"
                     value={questionInput.answer}
                     onChange={handleInputChange}
                     placeholder="問題の解答を入力"
-                    className="w-full h-[30vh] border-2 border-black rounded-3xl p-4"
+                    className="w-full h-[30vh] border-2 border-black rounded-3xl p-4 scrollbar-none"
                 />
             </div>
             <div className="flex justify-end w-[60vw] mt-[6vh] mx-auto">

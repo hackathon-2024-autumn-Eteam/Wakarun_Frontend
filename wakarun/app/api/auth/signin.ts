@@ -1,26 +1,23 @@
 import axios from 'axios'
 
-interface SignupPram {
-    username:string;
+interface SigninPram {
     email:string;
     password:string;
 }
 
-interface SignupRequest {
-    user_name:string;
+interface SigninRequest {
     email:string;
     password:string;
 }
-const signup = async({username, email, password}:SignupPram) => {
+const signin = async({email, password}:SigninPram) => {
     try{
-        const requestData:SignupRequest = {
-            user_name:username,
+        const requestData:SigninRequest = {
             email:email,
             password:password
         }
 
         const response = await axios.post(
-            'http://localhost:8000/api/signup/',
+            'http://localhost:8000/api/token/',
             requestData,
         )
         
@@ -34,4 +31,4 @@ const signup = async({username, email, password}:SignupPram) => {
     };
 }
 
-export {signup}
+export {signin}
