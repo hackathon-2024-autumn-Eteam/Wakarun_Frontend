@@ -17,8 +17,8 @@ export default {
         LLgreen:'#EDFDA6',
         blue:'#A2E4D9',
         Lblue:'#B3EFE5',
-        yellow:'#FFF267',
-        Lyellow:'#FEF7A8',
+        yellow2:'#FFF267',
+        Lyellow2:'#FEF7A8',
         
       },
     },
