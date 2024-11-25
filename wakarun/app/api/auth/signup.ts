@@ -20,7 +20,7 @@ const signup = async({username, email, password}:SignupPram) => {
         }
 
         const response = await axios.post(
-            'http://localhost:8000/api/signup/',
+            `${process.env.NEXT_PUBLIC_API_URL}/api/signup/`,
             requestData,
         )
         

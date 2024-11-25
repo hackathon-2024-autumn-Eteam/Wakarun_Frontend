@@ -13,7 +13,7 @@ type question = {
   type: number;
 };
 
-export default function timelinePage() {
+export default function TimelinePage() {
   const [questions, setQuestions] = useState<question[]>([]);
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedQuestion, setSelectedQuestion] = useState<question | null>(

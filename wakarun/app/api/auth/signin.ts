@@ -17,7 +17,7 @@ const signin = async({email, password}:SigninPram) => {
         }
 
         const response = await axios.post(
-            'http://localhost:8000/api/token/',
+            `${process.env.NEXT_PUBLIC_API_URL}/api/token/`,
             requestData,
         )
         
