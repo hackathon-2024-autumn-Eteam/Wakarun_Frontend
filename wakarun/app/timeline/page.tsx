@@ -2,7 +2,8 @@
 
 import { FaUserCircle } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
-import { Modal } from '@/app/components/modal/TimelineModal';
+import { AnswerInputModal } from '@/app/components/modal/AnswerInputModal';
+import { AnswerConfirmationModal } from '@/app/components/modal/AnswerConfirmationModal';
 
 type question = {
   id: string;
@@ -13,12 +14,14 @@ type question = {
   type: number;
 };
 
-export default function timelinePage() {
+export default function TimelinePage() {
   const [questions, setQuestions] = useState<question[]>([]);
-  const [isModalOpen, setModalOpen] = useState(false);
   const [selectedQuestion, setSelectedQuestion] = useState<question | null>(
     null
   );
+  const [answerInputModalValue, setAnswerInputModalValue] = useState('');
+  const [isAnswerInputModalOpen, setAnswerInputModalOpen] = useState(false);
+  const [isConfirmationModalOpen, setConfirmationModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchQuestions = async () => {
@@ -41,14 +44,27 @@ export default function timelinePage() {
     fetchQuestions();
   }, []);
 
-  const openModal = (question: question) => {
+  const openAnswerInputModal = (question: question) => {
     setSelectedQuestion(question);
-    setModalOpen(true);
+    setAnswerInputModalOpen(true);
+    setAnswerInputModalValue('');
   };
 
-  const closeModal = () => {
+  const closeAnswerInputModal = () => {
     setSelectedQuestion(null);
-    setModalOpen(false);
+    setAnswerInputModalOpen(false);
+  };
+
+  const openConfirmationModal = (question: question, value: string) => {
+    setConfirmationModalOpen(true);
+    setAnswerInputModalOpen(false);
+    setSelectedQuestion(question);
+    setAnswerInputModalValue(value);
+  };
+
+  const closeConfirmationModal = () => {
+    setConfirmationModalOpen(false);
+    setAnswerInputModalValue('');
   };
 
   return (
@@ -58,8 +74,8 @@ export default function timelinePage() {
           {questions.map((question) => (
             <div key={question.id} className="justify-items-center pb-9">
               <li
-                className="bg-litegreen rounded-[35px] w-[65.9375rem] py-5"
-                onClick={() => openModal(question)}
+                className="bg-litegreen rounded-[35px] w-[65.9375rem] py-5 cursor-pointer"
+                onClick={() => openAnswerInputModal(question)}
               >
                 <div className="grid grid-cols-2">
                   <div className="flex justify-self-start items-center pl-8">
@@ -78,10 +94,17 @@ export default function timelinePage() {
               </li>
             </div>
           ))}
-          <Modal
-            isOpen={isModalOpen}
-            onClose={closeModal}
+          <AnswerInputModal
+            isOpen={isAnswerInputModalOpen}
+            onClose={closeAnswerInputModal}
             question={selectedQuestion}
+            onConfirm={openConfirmationModal}
+          />
+          <AnswerConfirmationModal
+            isOpen={isConfirmationModalOpen}
+            onClose={closeConfirmationModal}
+            question={selectedQuestion}
+            value={answerInputModalValue}
           />
         </div>
       </main>

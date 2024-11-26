@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
 import { MdQuestionAnswer } from 'react-icons/md';
 
@@ -15,10 +15,28 @@ type ModalProps = {
   isOpen: boolean;
   onClose: () => void;
   question: question | null;
+  onConfirm: (question: question, value: string) => void;
 };
 
-const Modal = ({ isOpen, onClose, question }: ModalProps) => {
+const AnswerInputModal = ({
+  isOpen,
+  onClose,
+  question,
+  onConfirm,
+}: ModalProps) => {
+  const [answerInputModalValue, setAnswerInputModalValue] = useState('');
+
+  useEffect(() => {
+    if (isOpen) {
+      setAnswerInputModalValue('');
+    }
+  }, [isOpen]);
+
   if (!isOpen || !question) return null;
+
+  const handleConfirm = () => {
+    onConfirm(question, answerInputModalValue); // 入力値を親コンポーネントに渡す
+  };
 
   return (
     <>
@@ -53,11 +71,16 @@ const Modal = ({ isOpen, onClose, question }: ModalProps) => {
           </div>
           <div className="textInput w-full h-[30%] border-gray-950 border-b">
             <textarea
+              value={answerInputModalValue}
+              onChange={(e) => setAnswerInputModalValue(e.target.value)}
               className="resize-none w-full h-full p-10 break-words whitespace-normal text-3xl  hidden-scrollbar"
               placeholder="解答を入力してください"
-            ></textarea>
+            />
           </div>
-          <button className="fotter flex items-center justify-center rounded-b-[39px] w-full bg-green h-[10%]">
+          <button
+            className="fotter flex items-center justify-center rounded-b-[39px] w-full bg-green h-[10%]"
+            onClick={() => handleConfirm()}
+          >
             <MdQuestionAnswer size={40} />
             <p className="text-2xl pl-4">解答する</p>
           </button>
@@ -67,4 +90,4 @@ const Modal = ({ isOpen, onClose, question }: ModalProps) => {
   );
 };
 
-export { Modal };
+export { AnswerInputModal };
