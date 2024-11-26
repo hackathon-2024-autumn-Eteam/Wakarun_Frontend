@@ -18,6 +18,9 @@ export default {
         Lgreen: '#DAF55D',
         LLgreen: '#EDFDA6',
         skin: '#FEF7A8',
+        Lblue: '#B3EFE5',
+        yellow2: '#FFF267',
+        Lyellow2: '#FEF7A8',
       },
       width: {
         '1055': '65.9375rem',
