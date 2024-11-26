@@ -1,6 +1,5 @@
 import React from 'react';
 import { FaUserCircle } from 'react-icons/fa';
-import { MdQuestionAnswer } from 'react-icons/md';
 import { GiBookCover } from 'react-icons/gi';
 import { RiArrowGoBackFill } from 'react-icons/ri';
 
@@ -18,6 +17,8 @@ type ConfirmationModalProps = {
   onClose: () => void;
   question: question | null;
   value: string;
+  /* AnswerConfirmationModalを開く（データ送信処理付きver）
+  responseAnswer:string; */
 };
 
 const AnswerConfirmationModal = ({
@@ -61,6 +62,8 @@ const AnswerConfirmationModal = ({
             <div className="w-full h-[90%]">
               <p className="w-full max-h-full p-20 break-words whitespace-normal text-5xl">
                 {question.content}
+                {/* AnswerConfirmationModalを開く（データ送信処理付きver）
+                {responseAnswer} */}
               </p>
             </div>
           </div>

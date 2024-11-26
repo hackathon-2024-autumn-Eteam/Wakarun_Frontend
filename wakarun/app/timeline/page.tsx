@@ -14,6 +14,11 @@ type question = {
   type: number;
 };
 
+// AnswerConfirmationModalを開く（データ送信処理付きver）
+/* type responseValue={
+  value:string;
+} */
+
 export default function TimelinePage() {
   const [questions, setQuestions] = useState<question[]>([]);
   const [selectedQuestion, setSelectedQuestion] = useState<question | null>(
@@ -22,6 +27,8 @@ export default function TimelinePage() {
   const [answerInputModalValue, setAnswerInputModalValue] = useState('');
   const [isAnswerInputModalOpen, setAnswerInputModalOpen] = useState(false);
   const [isConfirmationModalOpen, setConfirmationModalOpen] = useState(false);
+  // AnswerConfirmationModalを開く（データ送信処理付きver）
+  /*   const [responseValue, setResponseValue] = useState(''); */
 
   useEffect(() => {
     const fetchQuestions = async () => {
@@ -61,6 +68,33 @@ export default function TimelinePage() {
     setSelectedQuestion(question);
     setAnswerInputModalValue(value);
   };
+
+  // AnswerConfirmationModalを開く（データ送信処理付きver）
+  /* const handleSubmitAnswer = async (question: question, value: string) => {
+    setAnswerInputModalOpen(false);
+    try {
+      // バックエンドにデータ送信
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/answer`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id: question.id }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error('Failed to submit answer');
+      }
+
+      const responseData = await response.json();
+      setConfirmationModalOpen(true);
+      setAnswerInputModalValue(value);
+      setResponseValue(responseData);
+    } catch (error) {
+      console.error('Error submitting answer:', error);
+    }
+  }; */
 
   const closeConfirmationModal = () => {
     setConfirmationModalOpen(false);
