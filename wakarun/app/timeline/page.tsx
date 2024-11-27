@@ -3,6 +3,7 @@
 import { FaUserCircle } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 import { Modal } from '@/app/components/modal/TimelineModal';
+import useAuth from '@/utils/useAuth';
 
 type question = {
   id: string;
@@ -19,6 +20,11 @@ export default function TimelinePage() {
   const [selectedQuestion, setSelectedQuestion] = useState<question | null>(
     null
   );
+
+  
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const loginUser = useAuth()
 
   useEffect(() => {
     const fetchQuestions = async () => {
