@@ -21,9 +21,6 @@ export default function TimelinePage() {
     null
   );
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const loginUser = useAuth();
-
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
