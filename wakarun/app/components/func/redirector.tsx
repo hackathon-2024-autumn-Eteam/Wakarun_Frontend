@@ -15,12 +15,15 @@ export default function Redirector({
   const [allowRender, setAllowRender] = useState(false);
 
   useEffect(() => {
+    const now = new Date().getTime() / 1000;
+    const tokenValid = loginUser.exp - now > 0;
+
+    // tokenを検証後かどうかを判定
     if (loginUser.validated) {
-      if (!publicRoute.includes(pathName) && loginUser.exp == 0) {
+      if (!publicRoute.includes(pathName) && !tokenValid) {
         router.push("/auth/signin");
       }
-
-      if (publicRoute.includes(pathName) && loginUser.exp != 0) {
+      if (publicRoute.includes(pathName) && tokenValid) {
         router.push("/timeline");
       }
 

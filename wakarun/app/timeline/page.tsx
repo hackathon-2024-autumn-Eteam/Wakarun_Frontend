@@ -3,7 +3,6 @@
 import { FaUserCircle } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { Modal } from "@/app/components/modal/TimelineModal";
-import useAuth from "@/utils/useAuth";
 
 type question = {
   id: string;
