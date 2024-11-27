@@ -1,6 +1,6 @@
-import React from 'react';
-import { FaUserCircle } from 'react-icons/fa';
-import { MdQuestionAnswer } from 'react-icons/md';
+import React from "react";
+import { FaUserCircle } from "react-icons/fa";
+import { MdQuestionAnswer } from "react-icons/md";
 
 type question = {
   id: string;
