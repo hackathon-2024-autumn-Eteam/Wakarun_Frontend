@@ -14,7 +14,6 @@ export default {
         foreground: 'var(--foreground)',
         green: '#B4DA0A',
         litegreen: '#EFFFD1',
-        blue: '#92DFD2',
         Lgreen: '#DAF55D',
         LLgreen: '#EDFDA6',
         skin: '#FEF7A8',
