@@ -46,7 +46,7 @@ const AnswerInputModal = ({
           className="bg-white rounded-[40px] w-5/6 h-5/6 border-gray-950 border"
           onClick={(e) => e.stopPropagation()} // モーダル内クリックで閉じない
         >
-          <div className="flex items-center header rounded-t-[39px] w-full bg-blue h-[10%] relative">
+          <div className="flex items-center header rounded-t-[39px] w-full bg-Lblue h-[10%] relative">
             <p className="hidden">{question.id}</p>
             <div className="pl-5">
               <FaUserCircle
