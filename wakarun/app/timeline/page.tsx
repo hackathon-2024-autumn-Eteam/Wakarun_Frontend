@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { FaUserCircle } from 'react-icons/fa';
-import { useEffect, useState } from 'react';
-import { Modal } from '@/app/components/modal/TimelineModal';
+import { FaUserCircle } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import { Modal } from "@/app/components/modal/TimelineModal";
 
 type question = {
   id: string;
@@ -27,7 +27,7 @@ export default function TimelinePage() {
           `${process.env.NEXT_PUBLIC_API_URL}/api/timeline`
         );
         if (!response.ok) {
-          throw new Error('Failed to fetch');
+          throw new Error("Failed to fetch");
         }
         const responseBody = await response.json();
         const data: question[] = responseBody.questions;
