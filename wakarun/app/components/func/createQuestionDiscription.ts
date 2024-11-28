@@ -46,11 +46,13 @@ export const CreateQuestionsDiscription = async ({
     if (questionsResponse.status >= 200 && questionsResponse.status < 300) {
       console.log("成功");
 
-      const AnswerRequestData: AnswerRequest = {
-        question_id: questionsResponse.data.id,
-        content: answer,
-        is_true: null,
-      };
+      const AnswerRequestData: AnswerRequest[] = [
+        {
+          question_id: questionsResponse.data.id,
+          content: answer,
+          is_true: null,
+        },
+      ];
 
       const answersResponse = await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/api/answers/`,
