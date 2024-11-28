@@ -14,11 +14,6 @@ type question = {
   type: number;
 };
 
-// AnswerConfirmationModalを開く（データ送信処理付きver）
-/* type responseValue={
-  value:string;
-} */
-
 export default function TimelinePage() {
   const [questions, setQuestions] = useState<question[]>([]);
   const [selectedQuestion, setSelectedQuestion] = useState<question | null>(
@@ -28,13 +23,13 @@ export default function TimelinePage() {
   const [isAnswerInputModalOpen, setAnswerInputModalOpen] = useState(false);
   const [isConfirmationModalOpen, setConfirmationModalOpen] = useState(false);
   // AnswerConfirmationModalを開く（データ送信処理付きver）
-  /*   const [responseValue, setResponseValue] = useState(''); */
+  const [responseValue, setResponseValue] = useState('');
 
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/timeline`
+          `${process.env.NEXT_PUBLIC_API_URL}/api/timeline/`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch");
@@ -62,25 +57,25 @@ export default function TimelinePage() {
     setAnswerInputModalOpen(false);
   };
 
-  const openConfirmationModal = (question: question, value: string) => {
+/*   const openConfirmationModal = (question: question, value: string) => {
     setConfirmationModalOpen(true);
     setAnswerInputModalOpen(false);
     setSelectedQuestion(question);
     setAnswerInputModalValue(value);
-  };
+  }; */
 
   // AnswerConfirmationModalを開く（データ送信処理付きver）
-  /* const handleSubmitAnswer = async (question: question, value: string) => {
+  const handleSubmitAnswer = async (question: question, value: string) => {
     setAnswerInputModalOpen(false);
     try {
       // バックエンドにデータ送信
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/answer`,
-        {
+        `${process.env.NEXT_PUBLIC_API_URL}/api/get-answer/?question_id=${question.id}`,
+/*         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ id: question.id }),
-        }
+          body: JSON.stringify({ question_id: question.id }),
+        } */
       );
 
       if (!response.ok) {
@@ -90,11 +85,12 @@ export default function TimelinePage() {
       const responseData = await response.json();
       setConfirmationModalOpen(true);
       setAnswerInputModalValue(value);
-      setResponseValue(responseData);
+      setResponseValue(responseData.content);
+      console.log("レスポンスデータ:",responseData.content);
     } catch (error) {
       console.error('Error submitting answer:', error);
     }
-  }; */
+  };
 
   const closeConfirmationModal = () => {
     setConfirmationModalOpen(false);
@@ -132,13 +128,14 @@ export default function TimelinePage() {
             isOpen={isAnswerInputModalOpen}
             onClose={closeAnswerInputModal}
             question={selectedQuestion}
-            onConfirm={openConfirmationModal}
+            onConfirm={handleSubmitAnswer}
           />
           <AnswerConfirmationModal
             isOpen={isConfirmationModalOpen}
             onClose={closeConfirmationModal}
             question={selectedQuestion}
             value={answerInputModalValue}
+            responseValue={responseValue}
           />
         </div>
       </main>

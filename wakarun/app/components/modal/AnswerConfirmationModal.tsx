@@ -17,8 +17,8 @@ type ConfirmationModalProps = {
   onClose: () => void;
   question: question | null;
   value: string;
-  /* AnswerConfirmationModalを開く（データ送信処理付きver）
-  responseAnswer:string; */
+  // AnswerConfirmationModalを開く（データ送信処理付きver）
+  responseValue:string;
 };
 
 const AnswerConfirmationModal = ({
@@ -26,6 +26,7 @@ const AnswerConfirmationModal = ({
   onClose,
   question,
   value,
+  responseValue,
 }: ConfirmationModalProps) => {
   if (!isOpen || !question) return null;
 
@@ -61,9 +62,8 @@ const AnswerConfirmationModal = ({
             </div>
             <div className="w-full h-[90%]">
               <p className="w-full max-h-full p-20 break-words whitespace-normal text-5xl">
-                {question.content}
-                {/* AnswerConfirmationModalを開く（データ送信処理付きver）
-                {responseAnswer} */}
+                {/* AnswerConfirmationModalを開く（データ送信処理付きver） */}
+                {responseValue}
               </p>
             </div>
           </div>
