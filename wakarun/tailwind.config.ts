@@ -17,6 +17,7 @@ export default {
         Lgreen: '#DAF55D',
         LLgreen: '#EDFDA6',
         skin: '#FEF7A8',
+        blue:'#A2E4D9',
         Lblue: '#B3EFE5',
         yellow2: '#FFF267',
         Lyellow2: '#FEF7A8',
