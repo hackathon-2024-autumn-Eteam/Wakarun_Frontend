@@ -15,7 +15,6 @@ const signin = async ({ email, password }: SigninPram) => {
       email: email,
       password: password,
     };
-    console.log(requestData);
     const response = await axios.post(
       `${process.env.NEXT_PUBLIC_API_URL}/api/signin/`,
       requestData
