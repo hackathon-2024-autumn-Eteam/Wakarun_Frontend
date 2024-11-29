@@ -17,8 +17,7 @@ type ConfirmationModalProps = {
   onClose: () => void;
   question: question | null;
   value: string;
-  // AnswerConfirmationModalを開く（データ送信処理付きver）
-  responseValue:string;
+  responseValue: string;
 };
 
 const AnswerConfirmationModal = ({
@@ -35,7 +34,7 @@ const AnswerConfirmationModal = ({
       <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
         <div
           className="bg-white rounded-[40px] w-5/6 h-5/6 border-gray-950 border"
-          onClick={(e) => e.stopPropagation()} // モーダル内クリックで閉じない
+          onClick={(e) => e.stopPropagation()}
         >
           <div className="flex items-center header rounded-t-[39px] w-full bg-Lblue h-[10%] relative">
             <p className="hidden">{question.id}</p>
@@ -62,7 +61,6 @@ const AnswerConfirmationModal = ({
             </div>
             <div className="w-full h-[90%]">
               <p className="w-full max-h-full p-20 break-words whitespace-normal text-5xl">
-                {/* AnswerConfirmationModalを開く（データ送信処理付きver） */}
                 {responseValue}
               </p>
             </div>

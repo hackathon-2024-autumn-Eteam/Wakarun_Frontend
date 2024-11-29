@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { FaUserCircle } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
@@ -22,7 +22,6 @@ export default function TimelinePage() {
   const [answerInputModalValue, setAnswerInputModalValue] = useState('');
   const [isAnswerInputModalOpen, setAnswerInputModalOpen] = useState(false);
   const [isConfirmationModalOpen, setConfirmationModalOpen] = useState(false);
-  // AnswerConfirmationModalを開く（データ送信処理付きver）
   const [responseValue, setResponseValue] = useState('');
 
   useEffect(() => {
@@ -32,7 +31,7 @@ export default function TimelinePage() {
           `${process.env.NEXT_PUBLIC_API_URL}/api/timeline/`
         );
         if (!response.ok) {
-          throw new Error("Failed to fetch");
+          throw new Error('Failed to fetch');
         }
         const responseBody = await response.json();
         const data: question[] = responseBody.questions;
@@ -57,21 +56,12 @@ export default function TimelinePage() {
     setAnswerInputModalOpen(false);
   };
 
-/*   const openConfirmationModal = (question: question, value: string) => {
-    setConfirmationModalOpen(true);
-    setAnswerInputModalOpen(false);
-    setSelectedQuestion(question);
-    setAnswerInputModalValue(value);
-  }; */
-
-  // AnswerConfirmationModalを開く（データ送信処理付きver）
   const handleSubmitAnswer = async (question: question, value: string) => {
     setAnswerInputModalOpen(false);
     try {
-      // バックエンドにデータ送信
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/get-answer/?question_id=${question.id}`,
-/*         {
+        `${process.env.NEXT_PUBLIC_API_URL}/api/get-answer/?question_id=${question.id}`
+        /*         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ question_id: question.id }),
@@ -86,7 +76,7 @@ export default function TimelinePage() {
       setConfirmationModalOpen(true);
       setAnswerInputModalValue(value);
       setResponseValue(responseData.content);
-      console.log("レスポンスデータ:",responseData.content);
+      console.log('レスポンスデータ:', responseData.content);
     } catch (error) {
       console.error('Error submitting answer:', error);
     }
