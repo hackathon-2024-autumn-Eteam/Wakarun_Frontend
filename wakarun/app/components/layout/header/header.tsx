@@ -40,8 +40,8 @@ export default function Header() {
   return (
     <header className="pb-28">
       <ul className="flex">
-        <li className={`flex-1 pt-5 ${styles["header-left"]}`}>
-          <Link href="/" className="flex justify-start pl-14">
+        <li className={`flex-1 pt-5 ${styles['header-left']}`}>
+          <Link href="/timeline" className="flex justify-start pl-14">
             <Image
               src="/images/logo.png"
               alt="ロゴ"
