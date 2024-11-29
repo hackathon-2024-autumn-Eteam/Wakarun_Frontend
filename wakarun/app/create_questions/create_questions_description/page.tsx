@@ -7,6 +7,7 @@ import {
 import React, { useState } from "react";
 import useAuth from "@/utils/useAuth";
 import { CreateQuestionsDiscription } from "@/app/components/func/createQuestionDiscription";
+import Header from "@/app/components/layout/header/header";
 
 type QuestionInput = {
   title: string;
@@ -56,7 +57,8 @@ export default function CreateQuestionsDescription() {
 
   return (
     <>
-      <div className="flex flex-col items-center space-y-6 w-[60vw] mx-auto mt-[20vh]">
+      <Header />
+      <div className="flex flex-col items-center space-y-6 w-[60vw] mx-auto">
         <input
           type="text"
           name="title"
