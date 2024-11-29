@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import { FaPenAlt } from 'react-icons/fa';
-import { BsHandIndexThumb } from 'react-icons/bs';
-import Header from '@/app/components/layout/header/header';
+import Link from "next/link";
+import { FaPenAlt } from "react-icons/fa";
+import { BsHandIndexThumb } from "react-icons/bs";
+import Header from "@/app/components/layout/header/header";
 export default function createQuestions() {
   return (
     <>
@@ -10,7 +10,7 @@ export default function createQuestions() {
         <div className="my-8 text-center font-bold text-lg">
           問題形式を選択してください
         </div>
-        <Link href="/dashboard">
+        <Link href="/create_questions/create_questions_description">
           <div className="my-8 h-36 text-3xl w-[50vw] rounded-3xl flex items-center justify-center bg-cover bg-[url('../../public/images/bg_button_green.png')]">
             <FaPenAlt />
             <span className="ml-5">記述式</span>
